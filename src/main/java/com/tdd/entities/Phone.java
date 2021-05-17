@@ -15,7 +15,8 @@ import lombok.Setter;
 public class Phone implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private Long id;
 	private String ddd;
-	private String phone;
+	private String number;
 
 }

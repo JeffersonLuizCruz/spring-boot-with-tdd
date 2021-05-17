@@ -19,7 +19,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public Person save(Person person) {
+	public Person save(Person person){
 		Optional<Person> result = personRepository.findByCpf(person.getCpf());
 		
 		if(result.isPresent())
