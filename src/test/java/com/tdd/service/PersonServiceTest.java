@@ -2,10 +2,8 @@ package com.tdd.service;
 
 import static org.mockito.Mockito.verify;
 
-import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +13,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.tdd.entities.Address;
 import com.tdd.entities.Person;
 import com.tdd.entities.Phone;
 import com.tdd.repositories.PersonRepository;
@@ -74,7 +71,7 @@ public class PersonServiceTest {
 	}
 	
 	@Test
-	@DisplayName("Não deve salvar pessoas com mesmo telefone")
+	@DisplayName("Não deve salvar pessoas com mesmo número de telefone")
 	public void error_add_identical_phone() {
 		Mockito.when(personRepository.findByDddAndPhone(DDD, NUMBER)).thenReturn(Optional.of(person));
 		

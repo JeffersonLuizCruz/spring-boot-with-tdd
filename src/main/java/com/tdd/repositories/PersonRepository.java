@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import com.tdd.entities.Person;
 
 @Repository
-public interface PersonRepository {
+public interface PersonRepository{
 
-	Optional<Person> findByDddAndPhone(String ddd, String phone);
+	Optional<Person> findByDddAndPhone(String ddd, String number);
 
 	Person save(Person person);
 
