@@ -9,7 +9,7 @@ import com.tdd.entities.Person;
 @Repository
 public interface PersonRepository{
 
-	Optional<Person> findByDddAndPhone(String ddd, String number);
+	Optional<Person> findByPhoneDddAndPhoneNumber(String ddd, String number);
 
 	Person save(Person person);
 
