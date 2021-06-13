@@ -20,12 +20,28 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person save(Person person){
-		Optional<Person> result = personRepository.findByCpf(person.getCpf());
+		Optional<Person> entity = personRepository.findByCpf(person.getCpf());
 		
-		if(result.isPresent())
-			throw new BadRequestException("CPF existente");
+		verifyIfExistCpf(person, entity);
+		
+		final String ddd = person.getPhones().get(0).getDdd();
+		final String number = person.getPhones().get(0).getNumber();
+		
+		entity = personRepository.findByPhoneDddAndPhoneNumber(ddd, number);
+		
+		verifyIfExistPhone(entity);
 		
 		return personRepository.save(person);
+	}
+
+	private void verifyIfExistPhone(Optional<Person> entity) {
+		if(entity.isPresent())
+			throw new BadRequestException("Telefone cadastrado '" + entity.get().getCpf() + "'");
+	}
+
+	private void verifyIfExistCpf(Person person, Optional<Person> entity) {
+		if(entity.isPresent())
+			throw new BadRequestException("Já existe pessoa cadastrada com o CPF '" + person.getCpf() + "'");
 	}
 
 }
