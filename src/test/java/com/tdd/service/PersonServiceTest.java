@@ -56,7 +56,6 @@ public class PersonServiceTest {
 		
 		person.getPhones().add(phone);
 		
-		Mockito.when(personRepository.findByCpf(CPF)).thenReturn(Optional.empty());
 	}
 	
 	@Test

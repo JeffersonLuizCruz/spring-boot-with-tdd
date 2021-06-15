@@ -1,6 +1,7 @@
 package com.tdd.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Person implements Serializable{
 	
 	private String name;
 	private String cpf;
-	private List<Address> address;
-	private List<Phone> phones;
+	private List<Address> address = new ArrayList<>();
+	private List<Phone> phones = new ArrayList<>();
 
 }

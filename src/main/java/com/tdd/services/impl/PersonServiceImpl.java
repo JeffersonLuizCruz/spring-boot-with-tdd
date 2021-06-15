@@ -44,4 +44,10 @@ public class PersonServiceImpl implements PersonService {
 			throw new BadRequestException("Já existe pessoa cadastrada com o CPF '" + person.getCpf() + "'");
 	}
 
+	@Override
+	public Person findByPhone(String phone) {
+		personRepository.findByPhoneDddAndPhoneNumber(phone, phone);
+		return null;
+	}
+
 }
